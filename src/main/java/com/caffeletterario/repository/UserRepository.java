@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.caffeletterario.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
+
     List<User> findAll();
 
     User findById(int id);
@@ -13,4 +14,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByEmail(String email);
 
     User findByCardNumber(String cardNumber);
+
 }
