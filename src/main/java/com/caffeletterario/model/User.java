@@ -10,8 +10,10 @@ import com.caffeletterario.model.enums.Role;
 
 @Entity
 @Table(name = "users")
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class User {
 
@@ -23,10 +25,13 @@ public class User {
     private String email;
 
     @Column
-    private String passwordHash;
+    private String password;
 
     @Column
-    private String fullName;
+    private String name;
+
+    @Column
+    private String lastName;
 
     @Column(unique = true)
     private String cardNumber;
@@ -36,7 +41,7 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "user")
-    @Builder.Default
+    @Builder.Default 
     private List<Loan> loans = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")

@@ -7,8 +7,10 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "loans")
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Loan {
 
