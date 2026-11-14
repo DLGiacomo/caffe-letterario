@@ -26,10 +26,13 @@ public class Book {
     private String title;
 
     @Column
-    private String author;
+    private List<String> authors;
 
     @Column
-    private String genre;
+    private List<String> categories;
+
+    @Column
+    private String coverImageUrl;
 
     @Column(name = "available_copies")
     private Integer availableCopies;
