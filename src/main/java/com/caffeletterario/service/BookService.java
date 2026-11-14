@@ -34,6 +34,14 @@ public class BookService {
         return bookRepository.findAll();
     }
 
+    public List<Book> getBooksByAuthors(List<String> authors) {
+        return bookRepository.findByAuthors(authors);
+    }
+
+    public List<Book> getBooksByCategories(List<String> categories) {
+        return bookRepository.findByCategories(categories);
+    }
+
     // metodo per trovare un libro tramite isbn utilizzando le api di google libri
     public Book findBookFromAPIByIsbn(String isbn) {
         String openLibraryBook = restClient.get()
