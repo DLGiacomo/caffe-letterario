@@ -2,6 +2,7 @@ package com.caffeletterario.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -40,6 +41,16 @@ public class BookService {
 
     public List<Book> getBooksByCategories(List<String> categories) {
         return bookRepository.findByCategories(categories);
+    }
+
+    public Book saveBookFromAPIByIsbn(String isbn) {
+        logger.info("saveBook: " + isbn);
+        Random rand = new Random();
+        Book book = findBookFromAPIByIsbn(isbn);
+        // setting momentaneo per testing
+        book.setTotalCopies(rand.nextInt(3) + 1);
+        book.setAvailableCopies(book.getTotalCopies());
+        return bookRepository.save(book);
     }
 
     // metodo per trovare un libro tramite isbn utilizzando le api di google libri
@@ -84,7 +95,6 @@ public class BookService {
         ArrayList<String> arrayList = new ArrayList<>();
         if (jsonArray != null) {
             for (int i = 0; i < jsonArray.length(); i++) {
-                logger.info(jsonArray.getString(i));
                 arrayList.add(jsonArray.getString(i));
             }
         }
