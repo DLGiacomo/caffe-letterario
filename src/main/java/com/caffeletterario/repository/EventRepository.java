@@ -14,5 +14,5 @@ public interface EventRepository extends JpaRepository<Event, Long> {
 
     Event findByTitle(String title);
 
-    List<Event> findByStartTime(LocalDateTime startTime);
+    boolean existsByStartTimeBeforeAndEndTimeAfter(LocalDateTime endTime, LocalDateTime startTime);
 }
