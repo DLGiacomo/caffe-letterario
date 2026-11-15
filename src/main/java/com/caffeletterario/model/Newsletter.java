@@ -30,4 +30,9 @@ public class Newsletter {
 
     @Column(name = "unsubscribed_at")
     private LocalDateTime unsubscribedAt;
+
+    public Newsletter (String email){
+        this.email = email;
+        this.subscribedAt = LocalDateTime.now();
+    }
 }

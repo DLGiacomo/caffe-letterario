@@ -8,10 +8,8 @@ import com.caffeletterario.model.Newsletter;
 
 public interface NewsletterRepository extends JpaRepository<Newsletter, Long> {
 
-    List<Newsletter> findAll();
-
-    Newsletter findById(int id);
-
     Newsletter findByEmail(String email);
+
+    List<Newsletter> findAllByIsActive(String email, int id);
 
 }
