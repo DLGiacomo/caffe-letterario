@@ -33,6 +33,6 @@ public class Booking {
     @Column(name = "seats_booked")
     private Integer seatsBooked;
 
-    @Column(name = "ticket_code")
+    @Column(name = "ticket_code", unique = true)
     private String ticketCode;
 }

@@ -6,8 +6,6 @@ import java.util.Random;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,7 +19,6 @@ import com.caffeletterario.repository.BookRepository;
 public class BookService {
     private final BookRepository bookRepository;
     private final RestClient restClient;
-    Logger logger = LoggerFactory.getLogger(BookService.class);
 
     @Value("${google.books.api.key}")
     private String googleApiKey;
