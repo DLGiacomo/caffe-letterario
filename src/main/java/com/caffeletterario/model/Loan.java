@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+import com.caffeletterario.model.enums.LoanStatus;
+
 @Entity
 @Table(name = "loans")
 @Getter
@@ -26,6 +28,9 @@ public class Loan {
     @JoinColumn(name = "book_id", nullable = false)
     private Book book;
 
+    @Column(name = "loan_status")
+    @Enumerated(EnumType.STRING)
+    private LoanStatus loanStatus;
     @Column(name = "loan_date")
     private LocalDate loanDate;
 
