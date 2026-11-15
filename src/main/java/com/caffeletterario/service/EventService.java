@@ -25,7 +25,7 @@ public class EventService {
         return eventRepository.findById(id).orElse(null);
     }
 
-    // metodo per salvare un evento nel database, controllando se esiste già un evento con lo stesso orario
+    // metodo per salvare un evento nel db, controllando se esiste già un evento con lo stesso orario
     public Event saveEvent(Event event) {
         if (eventRepository.existsByStartTimeBeforeAndEndTimeAfter(event.getEndTime(), event.getStartTime())) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,

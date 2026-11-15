@@ -43,7 +43,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     @Builder.Default 
     private List<Loan> loans = new ArrayList<>();
-
+    
     @OneToMany(mappedBy = "user")
     @Builder.Default
     private List<Booking> bookings = new ArrayList<>();

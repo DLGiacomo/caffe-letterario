@@ -43,8 +43,9 @@ public class BookService {
         return bookRepository.findByCategories(categories);
     }
 
+    // metodo per salvare il libro su db, per fini di test imposto i campi
+    // totalCopies e availableCopies con un valore random da 1 a 3
     public Book saveBookFromAPIByIsbn(String isbn) {
-        logger.info("saveBook: " + isbn);
         Random rand = new Random();
         Book book = findBookFromAPIByIsbn(isbn);
         // setting momentaneo per testing
@@ -63,7 +64,8 @@ public class BookService {
         return parseBookFromJson(jsonObject, isbn);
     }
 
-    // metodo per parsare il json restituito dalle api di google libri e creare un oggetto libro
+    // metodo per parsare il json restituito dalle api di google libri e creare un
+    // oggetto libro
     private Book parseBookFromJson(JSONObject jsonObject, String isbn) {
         if (jsonObject.optInt("totalItems") == 0) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found with ISBN: " + isbn);
@@ -89,7 +91,8 @@ public class BookService {
         }
     }
 
-    // metodo per settare gli attributi autori e categorie che sono array di stringhe
+    // metodo per settare gli attributi autori e categorie che sono array di
+    // stringhe
     private ArrayList<String> setAttributesListFromJson(JSONObject jsonGoogleAPIBook, String attributeName) {
         JSONArray jsonArray = jsonGoogleAPIBook.optJSONArray(attributeName);
         ArrayList<String> arrayList = new ArrayList<>();
