@@ -18,7 +18,7 @@ public class Newsletter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(unique = true)
     private String email;
 
     @Column(name = "is_active")
@@ -30,9 +30,4 @@ public class Newsletter {
 
     @Column(name = "unsubscribed_at")
     private LocalDateTime unsubscribedAt;
-
-    public Newsletter (String email){
-        this.email = email;
-        this.subscribedAt = LocalDateTime.now();
-    }
 }
