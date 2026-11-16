@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import com.caffeletterario.model.enums.LoanStatus;
 
@@ -31,6 +32,7 @@ public class Loan {
     @Column(name = "loan_status")
     @Enumerated(EnumType.STRING)
     private LoanStatus loanStatus;
+
     @Column(name = "loan_date")
     private LocalDate loanDate;
 
@@ -38,6 +40,6 @@ public class Loan {
     private LocalDate dueDate;
 
     @Column(name = "return_date")
-    private LocalDate returnDate;
+    private LocalDateTime returnDate;
 
 }
